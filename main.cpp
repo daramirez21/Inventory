@@ -4,6 +4,7 @@
 
 using namespace std;
 
+vector<string> listFromString(string input);
 
 int main()
 {
@@ -24,3 +25,25 @@ int main()
     return 0;
 }
            
+vector <string> listFromString(string input)
+{
+  string word;
+  vector <string> inventor;
+
+    for(int x = 0; x < input.size(); x++)
+    {
+        if(input.at(x) != ',')
+        {
+         word.append(1, input.at(x));
+        }
+        if(input.at(x) == ',')
+        { 
+         inventor.push_back(word);
+         word = "";
+        }
+    }
+    inventor.push_back(word);
+ return inventor;
+}
+
+
